@@ -7,6 +7,7 @@ public class SalariedEmployee extends Employee {
 
     public SalariedEmployee(String fullName, LocalDate birthDate, String id, double salary){
         super(fullName, birthDate, id);
+        annualSalary = salary;
     }
 
     public double getAnnualSalary() {
@@ -19,6 +20,6 @@ public class SalariedEmployee extends Employee {
 
     @Override
     public double calculatePayDay(){
-        return annualSalary / 52;
+        return Math.round(annualSalary / 52 / 0.01) * 0.01;
     }
 }

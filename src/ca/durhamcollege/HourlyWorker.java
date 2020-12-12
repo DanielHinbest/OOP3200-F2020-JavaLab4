@@ -17,7 +17,7 @@ public class HourlyWorker extends Employee
     //Setter for Hourly Rate
     public void setHourlyRate(double hourlyRate)
     {
-        if(hourlyRate < 17.00)
+        if(hourlyRate < 17)
         {
             throw new IllegalArgumentException("Hourly Rate cannot be under $17.00.");
         }
@@ -46,7 +46,7 @@ public class HourlyWorker extends Employee
     }
 
     //Parameterized Constructor
-    public HourlyWorker(String fullName, LocalDate birthDate, String id)
+    public HourlyWorker(String fullName, LocalDate birthDate, String id, double hourlyRate, double hoursPerWeek)
     {
         super(fullName, birthDate, id);
         setHourlyRate(hourlyRate);
@@ -57,7 +57,7 @@ public class HourlyWorker extends Employee
     @Override
     public double calculatePayDay()
     {
-        double earnedPerWeek = hoursPerWeek * hourlyRate;
-        return (double)Math.round(earnedPerWeek);
+        double earnedPerWeek = hourlyRate * hoursPerWeek;
+        return (double)Math.round(earnedPerWeek / 0.01) * 0.01;
     }
 }

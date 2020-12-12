@@ -10,7 +10,7 @@ public abstract class Employee extends Person {
         super(fullName, birthDate);
 
         try {
-            if (employeeID.length() != 8){
+            if (id.length() != 8){
                 throw new InputMismatchException();
             }
             else{
