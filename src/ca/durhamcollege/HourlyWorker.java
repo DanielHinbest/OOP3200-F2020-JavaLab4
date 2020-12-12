@@ -1,10 +1,15 @@
+/* Program Name: OOP 3200 - Java Lab 4 - Employee
+ * Authors: Ryan Clayson and Daniel Hinbest
+ * Date: December 12, 2020
+ * Description: Uses abstract classes and polymorphism
+ */
 package ca.durhamcollege;
 
 import java.time.LocalDate;
 
 public class HourlyWorker extends Employee
 {
-    //Declarations //
+    //Declarations
     private double hourlyRate;
     private double hoursPerWeek;
 
