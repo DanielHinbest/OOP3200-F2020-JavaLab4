@@ -8,8 +8,11 @@ public class Main {
 
     public static void main(String[] args)
     {
+        // Declaration for SalariedEmployee Object
         SalariedEmployee salariedEmployee = new SalariedEmployee("Daniel Hinbest",
                 LocalDate.of(2001, Month.AUGUST, 14), "12345678", 60000);
+
+        // Declaration for HourlyWorker
         HourlyWorker hourlyWorker = new HourlyWorker("Ryan Clayson",
                 LocalDate.of(1996, Month.NOVEMBER, 16), "87654321", 17.00, 48);
 
