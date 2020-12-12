@@ -5,6 +5,7 @@
  */
 package ca.durhamcollege;
 
+import java.text.DecimalFormat;
 import java.time.LocalDate;
 import java.time.Month;
 
@@ -12,6 +13,8 @@ public class Main {
 
     public static void main(String[] args)
     {
+        DecimalFormat currency = new DecimalFormat("$0.00");
+
         // Declaration for SalariedEmployee Object
         SalariedEmployee salariedEmployee = new SalariedEmployee("Daniel Hinbest",
                 LocalDate.of(2001, Month.AUGUST, 14), "12345678", 60000);
@@ -22,22 +25,22 @@ public class Main {
 
         //Print's Yearly Salary
         System.out.println("Daniel's Salary\n---------------");
-        System.out.println(salariedEmployee.getName() + ": $" + salariedEmployee.getAnnualSalary());
+        System.out.println(salariedEmployee.getName() + ": " + currency.format(salariedEmployee.getAnnualSalary()));
         salariedEmployee.setAnnualSalary(60001);
         //Print's Updated Salary
         System.out.println("\nDaniel's Updated Salary\n-------------------------");
-        System.out.println(salariedEmployee.getName() + "'s new salary: $" + salariedEmployee.getAnnualSalary());
+        System.out.println(salariedEmployee.getName() + "'s new salary: " + currency.format(salariedEmployee.getAnnualSalary()));
 
         //Print's Hourly Rate and Number of Hours
         System.out.println("\nRyan's Hourly Rate and Number of Hours\n---------------------------------------------");
-        System.out.println(hourlyWorker.getName() + ": $" + hourlyWorker.getHourlyRate() + " per hour, "
+        System.out.println(hourlyWorker.getName() + ": " + currency.format(hourlyWorker.getHourlyRate()) + " per hour, "
                 + hourlyWorker.getHoursPerWeek() + " hours per week");
 
         //Print's Updated Hourly Rate and Number of Hours
         System.out.println("\nRyan's Updated Hourly Rate and Number of Hours\n----------------------------------------------");
         hourlyWorker.setHourlyRate(25.00);
         hourlyWorker.setHoursPerWeek(40);
-        System.out.println(hourlyWorker.getName() + ": $" + hourlyWorker.getHourlyRate() + " per hour, "
+        System.out.println(hourlyWorker.getName() + ": " + currency.format(hourlyWorker.getHourlyRate()) + " per hour, "
                 + hourlyWorker.getHoursPerWeek() + " hours per week");
 
         //Start of Try Catch
@@ -52,7 +55,7 @@ public class Main {
             salariedEmployees[1] = new SalariedEmployee("John Doe", LocalDate.of(1989, Month.JULY, 12),
                     "63729482", 50000);
 
-            //Created 4 HourlyWorker Objects
+            //Created 3 HourlyWorker Objects
             hourlyWorkers[0] = new HourlyWorker("Adam Smith", LocalDate.of(1997, Month.JUNE, 2),
                     "81209438", 20.30, 44);
             hourlyWorkers[1] = new HourlyWorker("Matt Thomas", LocalDate.of(1994, Month.AUGUST, 4),
@@ -67,13 +70,13 @@ public class Main {
             System.out.println("Employee ID\tName\t\tAmount");
             for (int i = 0; i < salariedEmployees.length; i++){
                 totalAmountPaid += salariedEmployees[i].calculatePayDay();
-                System.out.println(salariedEmployees[i].getEmployeeID() + "\t" + salariedEmployees[i].getName() + "\t" + salariedEmployees[i].calculatePayDay());
+                System.out.println(salariedEmployees[i].getEmployeeID() + "\t" + salariedEmployees[i].getName() + "\t" + currency.format(salariedEmployees[i].calculatePayDay()));
             }
             for (int i = 0; i < hourlyWorkers.length; i++){
                 totalAmountPaid += hourlyWorkers[i].calculatePayDay();
-                System.out.println(hourlyWorkers[i].getEmployeeID() + "\t" + hourlyWorkers[i].getName() + "\t" + hourlyWorkers[i].calculatePayDay());
+                System.out.println(hourlyWorkers[i].getEmployeeID() + "\t" + hourlyWorkers[i].getName() + "\t" + currency.format(hourlyWorkers[i].calculatePayDay()));
             }
-            System.out.println("Total pay this week: " + Math.round(totalAmountPaid / 0.01) * 0.01);
+            System.out.println("\nTotal pay this week: " + currency.format(totalAmountPaid ));
 
         } catch(Exception ex){
             // Exception output
