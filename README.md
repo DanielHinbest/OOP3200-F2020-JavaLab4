@@ -1,0 +1,2 @@
+# OOP3200-F2020-JavaLab4
+This lab was a collaboration between Daniel Hinbest and Ryan Clayson in Object-Oriented Programming II (OOP 3200) at Durham College. The purpose of this lab is to be introduced to Java abstract classes and polymorphism. We needed to make three classes: an Employee base class, and two sub-classes, HourlyWorker and SalariedEmployee. We would also need to create all the necessary payment information for each type of employee
